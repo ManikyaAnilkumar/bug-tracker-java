@@ -19,7 +19,7 @@ public class BugTracker {
         int choice;
 
         do {
-            System.out.println("\n===== 🐞 Bug Tracker Menu =====");
+            System.out.println("\n=====  Bug Tracker Menu =====");
             System.out.println("1. Add Bug");
             System.out.println("2. View All Bugs");
             System.out.println("3. Update Bug");
@@ -29,7 +29,7 @@ public class BugTracker {
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1 -> addBug();
@@ -38,8 +38,8 @@ public class BugTracker {
                 case 4 -> deleteBug();
                 case 5 -> searchById();
                 case 6 -> searchByTitle();
-                case 0 -> System.out.println("👋 Exiting... Thank you!");
-                default -> System.out.println("❌ Invalid choice. Please try again.");
+                case 0 -> System.out.println(" Exiting... Thank you!");
+                default -> System.out.println("Invalid choice. Please try again.");
             }
 
         } while (choice != 0);
@@ -64,14 +64,14 @@ public class BugTracker {
 
         Bug bug = new Bug(id, title, description, severity, priority);
         bugService.addBug(bug);
-        System.out.println("✅ Bug added successfully!");
+        System.out.println(" Bug added successfully!");
     }
 
     private void viewAllBugs() {
         List<Bug> bugs = bugService.getAllBugs();
 
         if (bugs.isEmpty()) {
-            System.out.println("🚫 No bugs found.");
+            System.out.println(" No bugs found.");
         } else {
             for (Bug bug : bugs) {
                 System.out.println(bug);
@@ -86,7 +86,7 @@ public class BugTracker {
 
         Bug existing = bugService.getBugById(id);
         if (existing == null) {
-            System.out.println("❌ Bug not found.");
+            System.out.println(" Bug not found.");
             return;
         }
 
@@ -106,9 +106,9 @@ public class BugTracker {
         boolean updatedResult = bugService.updateBug(id, updated);
 
         if (updatedResult) {
-            System.out.println("✅ Bug updated successfully.");
+            System.out.println(" Bug updated successfully.");
         } else {
-            System.out.println("❌ Update failed.");
+            System.out.println(" Update failed.");
         }
     }
 
@@ -120,9 +120,9 @@ public class BugTracker {
         boolean deleted = bugService.deleteBug(id);
 
         if (deleted) {
-            System.out.println("🗑️ Bug deleted successfully.");
+            System.out.println(" Bug deleted successfully.");
         } else {
-            System.out.println("❌ Bug not found.");
+            System.out.println(" Bug not found.");
         }
     }
 
@@ -135,7 +135,7 @@ public class BugTracker {
         if (bug != null) {
             System.out.println(bug);
         } else {
-            System.out.println("🚫 Bug not found.");
+            System.out.println(" Bug not found.");
         }
     }
 
@@ -146,7 +146,7 @@ public class BugTracker {
         List<Bug> bugs = bugService.getBugsByTitle(title);
 
         if (bugs.isEmpty()) {
-            System.out.println("🚫 No matching bugs found.");
+            System.out.println(" No matching bugs found.");
         } else {
             for (Bug bug : bugs) {
                 System.out.println(bug);
