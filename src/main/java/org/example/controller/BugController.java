@@ -37,7 +37,7 @@ public class BugController {
                 case 3 -> updateBug();
                 case 4 -> deleteBug();
                 case 5 -> searchBugById();
-                case 6 -> searchBugByTitle();  // ✅ New method
+                case 6 -> searchBugByTitle();
                 case 0 -> System.out.println("Exiting...");
                 default -> System.out.println("Invalid choice. Try again.");
             }

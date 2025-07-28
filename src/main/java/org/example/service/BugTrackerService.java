@@ -18,12 +18,12 @@ public class BugTrackerService {
     public void addBug(Bug bug) {
         bugMap.put(bug.getId(), bug);
         TrackerFile.saveBugs(bugMap.values());
-        System.out.println("✅ Bug added successfully!");
+        System.out.println(" Bug added successfully!");
     }
 
     public void viewBugs() {
         if (bugMap.isEmpty()) {
-            System.out.println("🚫 No bugs found.");
+            System.out.println(" No bugs found.");
         } else {
             for (Bug bug : bugMap.values()) {
                 System.out.println(bug);
@@ -35,9 +35,9 @@ public class BugTrackerService {
         if (bugMap.containsKey(id)) {
             bugMap.put(id, updatedBug);
             TrackerFile.saveBugs(bugMap.values());
-            System.out.println("✅ Bug updated successfully.");
+            System.out.println(" Bug updated successfully.");
         } else {
-            System.out.println("🚫 Bug with ID " + id + " not found.");
+            System.out.println("Bug with ID " + id + " not found.");
         }
     }
 
@@ -45,9 +45,9 @@ public class BugTrackerService {
         if (bugMap.containsKey(id)) {
             bugMap.remove(id);
             TrackerFile.saveBugs(bugMap.values());
-            System.out.println("🗑️ Bug deleted successfully.");
+            System.out.println(" Bug deleted successfully.");
         } else {
-            System.out.println("🚫 Bug with ID " + id + " not found.");
+            System.out.println(" Bug with ID " + id + " not found.");
         }
     }
 
@@ -55,7 +55,7 @@ public class BugTrackerService {
         return bugMap.get(id);
     }
 
-    // ✅ New Feature: Search by Title
+    // Search by Title
     public List<Bug> getBugsByTitle(String title) {
         List<Bug> result = new ArrayList<>();
         for (Bug bug : bugMap.values()) {
